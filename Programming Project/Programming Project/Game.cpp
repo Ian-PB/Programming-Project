@@ -1,12 +1,13 @@
 /// <summary>
-/// @author Peter Lowe
-/// @date May 2019
+/// @author Ian Perez Bunuel
+/// @date March 2024
 ///
 /// you need to change the above lines or lose marks
 /// </summary>
 
 #include "Game.h"
 #include <iostream>
+
 
 
 
@@ -17,11 +18,13 @@
 /// load and setup thne image
 /// </summary>
 Game::Game() :
-	m_window{ sf::VideoMode{ 800U, 600U, 32U }, "SFML Game" },
+	m_window{ sf::VideoMode{ SCREEN_WIDTH, SCREEN_HEIGHT, 32U }, "SFML Game" },
 	m_exitGame{false} //when true game will exit
 {
 	setupFontAndText(); // load font 
-	setupSprite(); // load texture
+	setupObjects(); // load texture
+
+	srand(time(nullptr));
 }
 
 /// <summary>
@@ -77,6 +80,17 @@ void Game::processEvents()
 		{
 			processKeys(newEvent);
 		}
+
+		// Mouse
+		if (sf::Event::MouseButtonPressed == newEvent.type)
+		{
+			processMouseDown(newEvent);
+		}
+
+		if (sf::Event::MouseMoved == newEvent.type)
+		{
+			processMouseMove(newEvent);
+		}
 	}
 }
 
@@ -93,6 +107,19 @@ void Game::processKeys(sf::Event t_event)
 	}
 }
 
+void Game::processMouseDown(sf::Event t_event)
+{
+}
+
+void Game::processMouseMove(sf::Event t_event)
+{
+	// Gets the position of the mouse
+	mousePos.x = static_cast<float>(t_event.mouseMove.x);
+	mousePos.y = static_cast<float>(t_event.mouseMove.y);
+}
+
+
+
 /// <summary>
 /// Update the game world
 /// </summary>
@@ -103,6 +130,14 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
+
+	player.checkDirection();
+	player.rotateToMouse(mousePos);
+
+	for (int i = 0; i < MAX_ENEMIES; i++)
+	{
+		enemies[i].moveToTarget({ SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f });
+	}
 }
 
 /// <summary>
@@ -111,8 +146,15 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::White);
-	m_window.draw(m_welcomeMessage);
-	m_window.draw(m_logoSprite);
+
+	// Player
+	m_window.draw(player.getBody());
+	// Enemies
+	for (int i = 0; i < MAX_ENEMIES; i++)
+	{
+		m_window.draw(enemies[i].getBody());
+	}
+
 	m_window.display();
 }
 
@@ -121,31 +163,17 @@ void Game::render()
 /// </summary>
 void Game::setupFontAndText()
 {
-	if (!m_ArialBlackfont.loadFromFile("ASSETS\\FONTS\\ariblk.ttf"))
-	{
-		std::cout << "problem loading arial black font" << std::endl;
-	}
-	m_welcomeMessage.setFont(m_ArialBlackfont);
-	m_welcomeMessage.setString("SFML Game");
-	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
-	m_welcomeMessage.setPosition(40.0f, 40.0f);
-	m_welcomeMessage.setCharacterSize(80U);
-	m_welcomeMessage.setOutlineColor(sf::Color::Red);
-	m_welcomeMessage.setFillColor(sf::Color::Black);
-	m_welcomeMessage.setOutlineThickness(3.0f);
-
 }
 
 /// <summary>
 /// load the texture and setup the sprite for the logo
 /// </summary>
-void Game::setupSprite()
+void Game::setupObjects()
 {
-	if (!m_logoTexture.loadFromFile("ASSETS\\IMAGES\\SFML-LOGO.png"))
+	player.setup({200, 200});
+
+	for (int i = 0; i < MAX_ENEMIES; i++)
 	{
-		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
+		enemies[i].setup({ static_cast<float>(rand() % SCREEN_WIDTH), static_cast<float>(rand() % SCREEN_HEIGHT) });
 	}
-	m_logoSprite.setTexture(m_logoTexture);
-	m_logoSprite.setPosition(300.0f, 180.0f);
 }
