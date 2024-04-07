@@ -1,6 +1,0 @@
-﻿  Game.cpp
-C:\Users\C00294680\Desktop\Project\Programming Project\Programming Project\Game.cpp(27,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Player.cpp
-  main.cpp
-  Generating Code...
-  Programming Project.vcxproj -> C:\Users\C00294680\Desktop\Project\Programming Project\Debug\Programming Project.exe
