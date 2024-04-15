@@ -2,15 +2,15 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\Ian\Desktop\SFML Projects\Programming-Project\Particals Prototype\Debug\Particals Prototype.exe</FullPath>
+      <FullPath>C:\Users\C00294680\Desktop\Programming-Project\Particals Prototype\Debug\Particals Prototype.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Users\Ian\Desktop\SFML Projects\Programming-Project\Particals Prototype\Particals Prototype\ASSETS\FONTS\ariblk.ttf</FullPath>
+      <FullPath>C:\Users\C00294680\Desktop\Programming-Project\Particals Prototype\Particals Prototype\ASSETS\FONTS\ariblk.ttf</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\Ian\Desktop\SFML Projects\Programming-Project\Particals Prototype\Particals Prototype\ASSETS\IMAGES\SFML-LOGO.png</FullPath>
+      <FullPath>C:\Users\C00294680\Desktop\Programming-Project\Particals Prototype\Particals Prototype\ASSETS\IMAGES\SFML-LOGO.png</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

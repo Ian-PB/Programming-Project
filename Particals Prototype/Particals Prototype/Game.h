@@ -12,6 +12,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Partical.h"
+#include "Globals.h"
 
 class Game
 {
@@ -45,9 +46,9 @@ private:
 
 
 	// Objects
-	Partical particals[60];
+	Partical particals[MAX_PARTICALS];
 
-	const int PER_CLICK = 15;
+	const int PER_CLICK = MAX_PARTICALS / 5;
 	bool sprites = false;
 
 };

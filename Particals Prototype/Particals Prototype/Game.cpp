@@ -6,6 +6,7 @@
 /// </summary>
 
 #include "Game.h"
+#include "Globals.h"
 #include <iostream>
 
 
@@ -17,7 +18,7 @@
 /// load and setup thne image
 /// </summary>
 Game::Game() :
-	m_window{ sf::VideoMode{ 800U, 600U, 32U }, "SFML Game" },
+	m_window{ sf::VideoMode{ SCREEN_WIDTH, SCREEN_HEIGHT, 32U }, "SFML Game" },
 	m_exitGame{false} //when true game will exit
 {
 	srand(time(nullptr));

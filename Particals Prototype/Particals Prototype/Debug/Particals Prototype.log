@@ -1,6 +1,7 @@
 ﻿  Partical.cpp
-C:\Users\Ian\Desktop\SFML Projects\Programming-Project\Particals Prototype\Particals Prototype\Partical.cpp(31,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Ian\Desktop\SFML Projects\Programming-Project\Particals Prototype\Particals Prototype\Partical.cpp(40,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Ian\Desktop\SFML Projects\Programming-Project\Particals Prototype\Particals Prototype\Partical.cpp(42,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Ian\Desktop\SFML Projects\Programming-Project\Particals Prototype\Particals Prototype\Partical.cpp(47,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Particals Prototype.vcxproj -> C:\Users\Ian\Desktop\SFML Projects\Programming-Project\Particals Prototype\Debug\Particals Prototype.exe
+C:\Users\C00294680\Desktop\Programming-Project\Particals Prototype\Particals Prototype\Partical.cpp(32,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\C00294680\Desktop\Programming-Project\Particals Prototype\Particals Prototype\Partical.cpp(41,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\C00294680\Desktop\Programming-Project\Particals Prototype\Particals Prototype\Partical.cpp(43,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\C00294680\Desktop\Programming-Project\Particals Prototype\Particals Prototype\Partical.cpp(49,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\C00294680\Desktop\Programming-Project\Particals Prototype\Particals Prototype\Partical.cpp(78,12): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  Particals Prototype.vcxproj -> C:\Users\C00294680\Desktop\Programming-Project\Particals Prototype\Debug\Particals Prototype.exe

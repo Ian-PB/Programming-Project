@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Globals.h"
+
 class Partical
 {
 public:
@@ -24,12 +26,14 @@ private:
 
 	sf::RectangleShape body;
 	float size = 10;
+	const int MIN_SIZE = 5;
 
 	sf::Texture texture;
 	sf::Sprite sprite;
 
 	sf::Vector2f position;
 	int speed = 0;
+	const int MIN_SPEED = 2;
 
 	float angle = 0.0f;
 	sf::Vector2f direction;

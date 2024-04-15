@@ -17,7 +17,8 @@ void Partical::setup()
 	sprite.setTexture(texture);
 	sprite.setOrigin({194.5f, 215.5f});
 
-	body.setFillColor(sf::Color::White);
+	// body.setFillColor(sf::Color::White);
+	body.setFillColor({200, 200, 200, 255});
 }
 
 void Partical::spawn(sf::Vector2f t_pos)
@@ -27,7 +28,7 @@ void Partical::spawn(sf::Vector2f t_pos)
 	body.setPosition(position);
 	sprite.setPosition(position);
 
-	// Randomize angle
+	// Randomize angle particals go in
 	float randDirection = rand() % 360;
 	angle = randDirection + 90;
 
@@ -37,13 +38,14 @@ void Partical::spawn(sf::Vector2f t_pos)
 	// Set size and rotation
 	int randAngleD = (rand() % 360) + 1;
 	float randScale = ((rand() % 25) + 26) / 100.0f;
-	float randSize = (rand() % 40) + 11;
+	float randSize = (rand() % 30) + 11;
 	// Sprite
 	sprite.setRotation(randAngleD);
 	sprite.setScale({ randScale, randScale });
 	// Body
-	body.setSize({ randSize, randSize });
-	body.setOrigin({ randSize / 2, randSize / 2 });
+	size = randSize;
+	body.setSize({ size, size });
+	body.setOrigin({ size / 2, size / 2 });
 	body.setRotation(randAngleD);
 	
 	active = true;
@@ -59,6 +61,35 @@ void Partical::move()
 
 	position += direction;
 
+
+	// Decrease size as it moves
+	if (size > MIN_SIZE)
+	{
+		size -= 0.2f;
+		body.setSize({ size, size });
+	}
+	else
+	{
+		active = false;
+	}
+	// Decease Speed as it moves
+	if (speed > MIN_SPEED)
+	{
+		speed -= 0.2f;
+	}
+	else
+	{
+		if (size > MIN_SIZE)
+		{
+			size -= 0.75f;
+			body.setSize({ size, size });
+		}
+		else
+		{
+			active = false;
+		}
+	}
+
 	body.setPosition(position);
 	sprite.setPosition(position);
 }
@@ -69,7 +100,7 @@ void Partical::bounds()
 	{
 		active = false;
 	}
-	else if (position.x >= 900)
+	else if (position.x >= SCREEN_WIDTH + 100)
 	{
 		active = false;
 	}
@@ -78,7 +109,7 @@ void Partical::bounds()
 	{
 		active = false;
 	}
-	else if (position.y >= 700)
+	else if (position.y >= SCREEN_HEIGHT + 100)
 	{
 		active = false;
 	}
