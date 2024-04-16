@@ -10,7 +10,7 @@ void Partical::setup()
 {
 	if (!texture.loadFromFile("ASSETS\\IMAGES\\Partical.png"))
 	{
-		std::cout << "problem loading cry texture" << std::endl;
+		std::cout << "problem loading partical texture" << std::endl;
 	}
 
 
@@ -29,7 +29,7 @@ void Partical::spawn(sf::Vector2f t_pos)
 	sprite.setPosition(position);
 
 	// Randomize angle particals go in
-	float randDirection = rand() % 360;
+	float randDirection = (rand() % 360);
 	angle = randDirection + 90;
 
 	// Randomize speed
